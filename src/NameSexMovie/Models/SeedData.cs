@@ -24,7 +24,10 @@ namespace NameSexMovie.Models
                         ID = 1,
                         name = "Heidi Nerud",
                         gender = "Female",
-                        movie = "Princess Bride"
+                        movie = "Princess Bride",
+                        book = "The Moon is a Harsh Mistress",
+                        music = "Black Sabbath",
+                        food = "Guacomole and Margaritas"
 
                     },
                     new Information
@@ -32,7 +35,10 @@ namespace NameSexMovie.Models
                         ID = 2,
                         name = "Timothy Nerud",
                         gender = "Male",
-                        movie = "Star Wars Episode IV"
+                        movie = "Star Wars Episode IV",
+                        book = "Temple of Elemental Evil",
+                        music = "Judas Priest",
+                        food= "pizza"
 
                     },
                    new Information
@@ -40,7 +46,10 @@ namespace NameSexMovie.Models
                        ID = 3,
                        name = "Sarah Nerud",
                        gender = "Female",
-                       movie = "The Hobbit"
+                       movie = "The Hobbit",
+                       book="Lunar Chronicles",
+                       music = "Blackmore's Knight",
+                       food = "seafood"
                    },
 
                    new Information
@@ -48,7 +57,10 @@ namespace NameSexMovie.Models
                        ID = 4,
                        name = "Katrina Nerud",
                        gender = "Female",
-                       movie = "Godzilla"
+                       movie = "Godzilla",
+                       book= "Raindrop Plop",
+                       music = "Blackmore's Knight",
+                       food = "Grilled Cheese"
 
                    },
 
@@ -57,7 +69,10 @@ namespace NameSexMovie.Models
                        ID = 5,
                        name = "Nicole Nerud",
                        gender = "Female",
-                       movie = "Chronicles of Narnia"
+                       movie = "Chronicles of Narnia",
+                       book = "Kane Chronicles",
+                       music = "Enya",
+                       food = "Mushroom Swiss Burger"
 
                    }
 

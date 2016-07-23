@@ -53,7 +53,7 @@ namespace NameSexMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,gender,movie,name")] Information information)
+        public async Task<IActionResult> Create([Bind("ID,gender,movie,name,book,food,music,age")] Information information)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace NameSexMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,gender,movie,name")] Information information)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,gender,movie,name,book,food,music,age")] Information information)
         {
             if (id != information.ID)
             {
