@@ -27,7 +27,8 @@ namespace NameSexMovie.Models
                         movie = "Princess Bride",
                         book = "The Moon is a Harsh Mistress",
                         music = "Black Sabbath",
-                        food = "Guacomole and Margaritas"
+                        food = "Guacomole and Margaritas",
+                        age = 41
 
                     },
                     new Information
@@ -38,7 +39,8 @@ namespace NameSexMovie.Models
                         movie = "Star Wars Episode IV",
                         book = "Temple of Elemental Evil",
                         music = "Judas Priest",
-                        food= "pizza"
+                        food= "pizza",
+                        age = 45
 
                     },
                    new Information
@@ -49,7 +51,8 @@ namespace NameSexMovie.Models
                        movie = "The Hobbit",
                        book="Lunar Chronicles",
                        music = "Blackmore's Knight",
-                       food = "seafood"
+                       food = "seafood",
+                       age = 13
                    },
 
                    new Information
@@ -60,7 +63,8 @@ namespace NameSexMovie.Models
                        movie = "Godzilla",
                        book= "Raindrop Plop",
                        music = "Blackmore's Knight",
-                       food = "Grilled Cheese"
+                       food = "Grilled Cheese",
+                       age = 5
 
                    },
 
@@ -72,7 +76,8 @@ namespace NameSexMovie.Models
                        movie = "Chronicles of Narnia",
                        book = "Kane Chronicles",
                        music = "Enya",
-                       food = "Mushroom Swiss Burger"
+                       food = "Mushroom Swiss Burger",
+                       age = 10
 
                    }
 
