@@ -21,7 +21,6 @@ namespace NameSexMovie.Models
                 context.Information.AddRange(
                     new Information
                     {
-                        ID = 1,
                         name = "Heidi Nerud",
                         gender = "Female",
                         movie = "Princess Bride",
@@ -33,7 +32,6 @@ namespace NameSexMovie.Models
                     },
                     new Information
                     {
-                        ID = 2,
                         name = "Timothy Nerud",
                         gender = "Male",
                         movie = "Star Wars Episode IV",
@@ -45,7 +43,6 @@ namespace NameSexMovie.Models
                     },
                    new Information
                    {
-                       ID = 3,
                        name = "Sarah Nerud",
                        gender = "Female",
                        movie = "The Hobbit",
@@ -57,7 +54,6 @@ namespace NameSexMovie.Models
 
                    new Information
                    {
-                       ID = 4,
                        name = "Katrina Nerud",
                        gender = "Female",
                        movie = "Godzilla",
@@ -70,7 +66,6 @@ namespace NameSexMovie.Models
 
                    new Information
                    {
-                       ID = 5,
                        name = "Nicole Nerud",
                        gender = "Female",
                        movie = "Chronicles of Narnia",

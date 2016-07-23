@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-NameSexMovie-be1eced6-6343-424a-90c5-7f6a0f577d9e",
 
   "dependencies": {
@@ -42,7 +42,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "System.Runtime": "4.1.0"
   },
 
   "tools": {

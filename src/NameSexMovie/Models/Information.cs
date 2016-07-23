@@ -9,9 +9,9 @@ namespace NameSexMovie.Models
     public class Information
     {
         public int ID { get; set; }
-        [RegularExpression(@"^ ([a - z] +[,.]?[ ] ?|[a - z] +['-]?)+$)")]
+        [RegularExpression(@"^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$")]
         public string name { get; set; }
-        [RegularExpression(@"^([Male|[Female)$")]
+        [RegularExpression(@"^([M|m]ale|[F|f]emale)$")]
         public string gender { get; set; }
         [StringLength(60, MinimumLength =2)]
         [RegularExpression (@"^[A-Z]+[a-zA-Z''-'\s]*$")]
@@ -20,10 +20,8 @@ namespace NameSexMovie.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         public string book { get; set; }
         [StringLength(60, MinimumLength = 2)]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         public string music { get; set; }
         [StringLength(60, MinimumLength = 2)]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
         public string food { get; set; }
         [RegularExpression(@"^\d{1,2}$")]
         public int age { get; set; }
