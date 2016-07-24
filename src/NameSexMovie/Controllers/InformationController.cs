@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using NameSexMovie.Data;
 using NameSexMovie.Models;
 
@@ -13,6 +15,8 @@ namespace NameSexMovie.Controllers
     public class InformationController : Controller
     {
         private readonly ApplicationDbContext _context;
+        
+        
 
         public InformationController(ApplicationDbContext context)
         {
@@ -20,9 +24,30 @@ namespace NameSexMovie.Controllers
         }
 
         // GET: Information
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string category, string searchString, string subcategory)
         {
-            return View(await _context.Information.ToListAsync());
+            
+            IQueryable<string> categoryQuery = from m in _context.Information
+                                               orderby m.food
+                                               select m.food;
+
+            var information = from m in _context.Information
+                              select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+                {
+                    information = information.Where(s => s.food.Contains(searchString));
+                }
+                if (!String.IsNullOrEmpty(subcategory))
+                {
+                    information = information.Where(x => x.food == subcategory);
+                }
+            
+            var informationVM = new InformationViewModel();
+            informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
+            informationVM.information = await information.ToListAsync();
+
+            return View(informationVM);
         }
 
         // GET: Information/Details/5

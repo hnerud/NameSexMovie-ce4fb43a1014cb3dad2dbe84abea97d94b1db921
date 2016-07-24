@@ -1,70 +1,80 @@
-@model IEnumerable<NameSexMovie.Models.Information>
-
+@model InformationViewModel
 @{
     ViewData["Title"] = "Index";
 }
-
 <h2>Information</h2>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.movie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.book)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.music)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.food)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.age)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.movie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.book)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.music)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.food)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.age)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<form asp-controller="information" asp-action="Index" method="get">
+    <p>
+        <select asp-for="subcategory" asp-items="Model.selectedCategory">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" name="searchString" />
+        <input type="submit" value="Filter" />
+
+    </p>
+</form>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].movie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].book)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].music)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].food)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.information[0].age)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.information)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.movie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.book)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.music)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.food)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.age)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
