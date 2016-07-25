@@ -26,28 +26,93 @@ namespace NameSexMovie.Controllers
         // GET: Information
         public async Task<IActionResult> Index(string category, string searchString, string subcategory)
         {
-            
-            IQueryable<string> categoryQuery = from m in _context.Information
-                                               orderby m.food
-                                               select m.food;
 
-            var information = from m in _context.Information
-                              select m;
+            if (category == "book")
+            {
+                IQueryable<string> categoryQuery = from m in _context.Information
+                                                   orderby m.book
+                                                   select m.book;
 
-            if (!String.IsNullOrEmpty(searchString))
+                var information = from m in _context.Information
+                                  select m;
+
+
+                if (!String.IsNullOrEmpty(subcategory))
                 {
-                    information = information.Where(s => s.food.Contains(searchString));
+                    information = information.Where(x => x.book == subcategory);
                 }
+                var informationVM = new InformationViewModel();
+                informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
+                informationVM.information = await information.ToListAsync();
+
+                return View(informationVM);
+            }
+            else if (category == "movie")
+            {
+                IQueryable<string> categoryQuery = from m in _context.Information
+                                                   orderby m.movie
+                                                   select m.movie;
+
+                var information = from m in _context.Information
+                                  select m;
+
+
+                if (!String.IsNullOrEmpty(subcategory))
+                {
+                    information = information.Where(x => x.movie == subcategory);
+                }
+                var informationVM = new InformationViewModel();
+                informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
+                informationVM.information = await information.ToListAsync();
+
+                return View(informationVM);
+            }
+            else if (category == "food")
+            {
+                IQueryable<string> categoryQuery = from m in _context.Information
+                                                   orderby m.food
+                                                   select m.food;
+
+                var information = from m in _context.Information
+                                  select m;
+
+
                 if (!String.IsNullOrEmpty(subcategory))
                 {
                     information = information.Where(x => x.food == subcategory);
                 }
-            
-            var informationVM = new InformationViewModel();
-            informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
-            informationVM.information = await information.ToListAsync();
+                var informationVM = new InformationViewModel();
+                informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
+                informationVM.information = await information.ToListAsync();
 
-            return View(informationVM);
+                return View(informationVM);
+            }
+
+            else
+            {
+                IQueryable<string> categoryQuery = from m in _context.Information
+                                                   orderby m.music
+                                                   select m.music;
+
+                var information = from m in _context.Information
+                                  select m;
+
+              
+                if (!String.IsNullOrEmpty(subcategory))
+                {
+                    information = information.Where(x => x.music == subcategory);
+                }
+
+                var informationVM = new InformationViewModel();
+                informationVM.selectedCategory = new SelectList(await categoryQuery.Distinct().ToListAsync());
+                informationVM.information = await information.ToListAsync();
+
+                return View(informationVM);
+            }
+
+
+
+
         }
 
         // GET: Information/Details/5

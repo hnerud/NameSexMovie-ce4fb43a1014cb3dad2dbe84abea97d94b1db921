@@ -8,6 +8,8 @@ namespace NameSexMovie.Models
 {
     public class Information
     {
+        internal static object category;
+
         public int ID { get; set; }
         [RegularExpression(@"^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$", ErrorMessage = "Make sure you capitalize")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Name can not be empty")]
